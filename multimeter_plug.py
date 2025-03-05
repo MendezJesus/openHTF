@@ -24,5 +24,5 @@ class MultimeterPlug(plugs.BasePlug):
         return random.uniform(0, 2)
 
     def get_id(self):
-        # returns Identy
+        # returns identity
         return self.session.query('*IDN?')
