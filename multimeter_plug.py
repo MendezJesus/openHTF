@@ -13,6 +13,7 @@ class MultimeterPlug(plugs.BasePlug):
 
     def tearDown(self):
         # Automatically called by OpenHTF after the test to clean up
+        self.session.close()
         self.connected = False
 
     def measure_voltage(self):
