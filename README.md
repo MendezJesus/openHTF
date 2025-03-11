@@ -1,2 +1,2 @@
-# openHTF
-![Keysight Example of OpenHTF]([http://url/to/img.png](https://github.com/MendezJesus/openHTF/tree/main/img))
+# openHTF with Keysight
+![Keysight Example of OpenHTF](https://github.com/MendezJesus/openHTF/blob/main/img/keysight.png)
