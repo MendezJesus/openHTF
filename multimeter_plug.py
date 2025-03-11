@@ -16,13 +16,25 @@ class MultimeterPlug(plugs.BasePlug):
         self.session.close()
         self.connected = False
 
-    def measure_voltage(self):
-        # Simulate voltage measurement
-        return random.uniform(0, 10)
+    def measure_voltage_dc(self):
+        # Measures DC voltage
+        return float(self.session.query('MEASure:VOLTage:DC?'))
 
-    def measure_current(self):
-        # Simulate current measurement
-        return random.uniform(0, 2)
+    def measure_voltage_ac(self):
+        # Measures AC voltage
+        return float(self.session.query('MEASure:VOLTage:AC?'))
+
+    def measure_current_dc(self):
+        # Measures DC current
+        return float(self.session.query('MEASure:CURRent:DC?'))
+
+    def measure_current_ac(self):
+        # Measures AC current
+        return float(self.session.query('MEASure:CURRent:AC?'))
+
+    def measure_resistance(self):
+        # Measure Resistance
+        return float(self.session.query('MEASure:RESistance?'))
 
     def get_id(self):
         # returns identity

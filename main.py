@@ -12,12 +12,11 @@ MultimeterPlug1 = bind_init_args(MultimeterPlug, IP_ADDR_1)
     htf.Measurement("voltage")
     .in_range(0, 10)
     .with_units(units.VOLT)
-    .with_precision(1)
 )
 @htf.plug(multimeter=MultimeterPlug1)
 def phase_voltage(test, multimeter):
     # Use the plug to measure voltage
-    voltage = multimeter.measure_voltage()
+    voltage = multimeter.measure_voltage_dc()
     test.measurements.voltage = voltage
 
 @htf.measures(
@@ -32,9 +31,9 @@ def phase_getID(test, multimeter):
 
 def main():
     test = htf.Test(phase_voltage, phase_getID)
-    #test.execute(lambda: "PCB001")
-    with TofuPilot(test):
-        test.execute(lambda: "TestB001")
+    test.execute(lambda: "PCB001")
+    #with TofuPilot(test):
+        #test.execute(lambda: "TestB001")
 
 if __name__ == "__main__":
     main()
